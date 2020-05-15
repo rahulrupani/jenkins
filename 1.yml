@@ -1,0 +1,6 @@
+---
+- hosts: all
+  #Including all hosts
+  tasks:
+    - name: create a text file in $HOME with the /bin/sh shell
+      shell: echo "Hello, World!" > $HOME/test_file.txt

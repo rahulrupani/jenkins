@@ -1,0 +1,4 @@
+- name: create a text file in $HOME only if it doesn't already exist
+  shell: echo "Hello, World!" > $HOME/test_file.txt
+  args:
+    creates: "$HOME/test_file.txt"

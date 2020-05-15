@@ -1,0 +1,6 @@
+---
+- hosts: all
+
+  tasks:
+  - name: Write backup script for each app
+    shell: date  >> /tmp/echo_job.log && hostname >> /tmp/echo_job.log
