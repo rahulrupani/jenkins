@@ -25,11 +25,22 @@ pipeline {
                                             image ‘nginx’
                                            }
                                     }
+                            stage('install ansible') {
+                            agent { // install galaxy roles
+            sh "ansible-galaxy install -vvv -r provision/requirements.yml -p provision/roles/"
 
+            ansiblePlaybook colorized: true,
+            credentialsId: 'ssh-jenkins',
+            limit: "${HOST_PROVISION}",
+            installation: 'ansible',
+            inventory: 'provision/inventory.ini',
+            playbook: 'provision/playbook.yml',
+            sudo: true,
+            sudoUser: 'jenkins'}
+               }
                               steps {
                                 echo "Docker Created"
                               }
-                           }
                            }
                            }
                  stage('Prod') {
