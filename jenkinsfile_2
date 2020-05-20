@@ -39,6 +39,7 @@ pipeline {
                            }
                            }
                            }
+                           }
                  stage('Prod') {
                      steps {
                                 echo "App is Prod Ready"
