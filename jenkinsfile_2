@@ -6,7 +6,7 @@ pipeline {
 				echo 'Hi, GeekFlare. Starting to build the App.'
 			}
 		}
-        stage('Ansible Deploy') {
+                stage('Ansible Deploy') {
 			steps {
 				sh 'ansible all -m ping -i hosts'
 			}
@@ -28,11 +28,11 @@ pipeline {
 				}
 			}
 		}
-	}
-	stage('Prod') {
-		steps {
+	        stage('Prod') {
+		      steps {
 			echo "App is Prod Ready"
 		}
 
+	}
 	}
 }
