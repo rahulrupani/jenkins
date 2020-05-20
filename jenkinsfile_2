@@ -6,6 +6,11 @@ pipeline {
 				echo 'Hi, GeekFlare. Starting to build the App.'
 			}
 		}
+        stage('Ansible Deploy') {
+			steps {
+				sh 'ansible all -m ping -i hosts'
+			}
+		}
 		stage('Test') {
 			steps {
 				input('Do you want to proceed?')
@@ -18,12 +23,6 @@ pipeline {
 						echo "Start the deploy .."
 					}
 				}
-				stage('Ansible Deploy') {
-					steps {
-						sh 'ansible all -m ping -i hosts'
-					}
-				}
-
 				steps {
 					echo "Docker Created"
 				}
