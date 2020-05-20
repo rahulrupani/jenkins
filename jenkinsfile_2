@@ -20,9 +20,7 @@ pipeline {
 				}
 				stage('Ansible Deploy') {
 					steps {
-						{
-							sh 'ansible all -m ping -i hosts'
-						}
+						sh 'ansible all -m ping -i hosts'
 					}
 				}
 
