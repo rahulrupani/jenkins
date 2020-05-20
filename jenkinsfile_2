@@ -23,7 +23,7 @@ pipeline {
 						echo "Start the deploy .."
 					}
 				}
-				stage('Deploy start ') {
+				stage('Deploy Create ') {
 				steps {
 					echo "Docker Created"
 				}
